@@ -1,5 +1,9 @@
-export default function Results() {
+import { calculateInvestmentResults } from '../util/investment.js';
+
+export default function Results({ input }) {
+    const data = calculateInvestmentResults(input);
+    console.log(data);
     return (
-        <p>results...</p>
+        <p></p>
     );
 };

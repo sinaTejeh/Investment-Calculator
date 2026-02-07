@@ -14,11 +14,10 @@ const USER_INPUT = {
 function App() {
   const [userInput, setUserInput] = useState(USER_INPUT);
   const handleChange = function (inputIndentifier, newValue) {
-    console.log(newValue);
     setUserInput(prevUserInpu => {
       return {
         ...prevUserInpu,
-        [inputIndentifier]: newValue,
+        [inputIndentifier]: +newValue,
       };
     });
   };
@@ -27,7 +26,7 @@ function App() {
     <>
       <Header />
       <UserInput onChange={handleChange} userInput={userInput} />
-      <Results />
+      <Results input={userInput} />
     </>
   );
 }
