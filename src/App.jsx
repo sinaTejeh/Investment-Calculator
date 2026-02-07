@@ -13,6 +13,7 @@ const USER_INPUT = {
 
 function App() {
   const [userInput, setUserInput] = useState(USER_INPUT);
+  const inputIsValid = userInput.duration >= 1;
   const handleChange = function (inputIndentifier, newValue) {
     setUserInput(prevUserInpu => {
       return {
@@ -26,7 +27,8 @@ function App() {
     <>
       <Header />
       <UserInput onChange={handleChange} userInput={userInput} />
-      <Results input={userInput} />
+      {!inputIsValid && <p id="error">Please Enter Valid Data Number</p>}
+      {inputIsValid && <Results input={userInput} />}
     </>
   );
 }
